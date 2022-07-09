@@ -1,13 +1,13 @@
-//score constants
+//associate HTML buttons to JavaScript constants 
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+//score variables 
 let user_score = 0;
 let comp_score = 0;
 let added_score = 0;
 let games = 0;
-
-//associate HTML buttons to JavaScript
-const rock = document.querySelector('#rock');
-const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
 
 
 //make it so that Buttons is called when the window opens
@@ -78,7 +78,6 @@ function numOfGames() {
         declare_winner(user_score, comp_score);
     }
 }
-
 
 
 //when i did it in a retarded way
