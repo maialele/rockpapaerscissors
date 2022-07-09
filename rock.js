@@ -1,5 +1,17 @@
+//score constants
 let user_score = 0;
 let comp_score = 0;
+let added_score = 0;
+let games =0;
+
+//associate HTML buttons to JavaScript
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+
+//make it so that Buttons is called when the window opens
+window.onload = Buttons
 
 //this function chooses between rock, paper or scissors and returns it. the computer choice.
 function computerPlay() {
@@ -9,22 +21,19 @@ function computerPlay() {
     return choice;
 }
 
-//this function takes user input of rock, paper or scissors and returns it.
-function playerSelection() {
-    let choice = prompt('Rock, Paper or Scissors?')
-    choice = choice.toLowerCase();
-    console.log(choice);
-    if (choice == 'rock') {
-        return 'rock';
-    }
-    else if (choice == 'paper') {
-        return 'paper';
-    }
-    else if (choice == 'scissors') {
-        return 'scissors';
-    }
-    else {
-        alert('Please enter Rock, Paper or Scissors')
+//this function calls Game once the player chooses rock, paper or scissors. The player choice.
+function Buttons() {
+    rps = ['rock','paper','scissors']
+    rpsVar = [rock,paper,scissors]
+    for ( let i = 0; i < rps.length; i++) {
+        rpsVar[i].addEventListener('click', () => {
+            console.log(rps[i]);
+            Game(rps[i],computerPlay());
+            console.log(user_score);
+            console.log(comp_score);
+            console.log(added_score);
+            numOfGames();
+        })
     }
 }
 
@@ -36,34 +45,65 @@ function Game(mychoice,compchoice) {
         'scissors': 'paper'
     }
     if (pairs[mychoice] == compchoice) {
-        console.log(mychoice + " beats" + compchoice + ". player wins.")
+        console.log(mychoice + " beats " + compchoice + ". player wins.")
         user_score += 1;
     }
     else if (pairs[compchoice] == mychoice) {
-        console.log(compchoice + " beats" + mychoice + ". computer wins.")
+        console.log(compchoice + " beats " + mychoice + ". computer wins.")
         comp_score += 1;
     }
     else {
         console.log('tie')
     }
+    added_score = user_score + comp_score;
+    games += 1;
 }
 
-//for loop to repeat game ten times
-for (let i = 0; i < 11; i++ ) {
-    Game(playerSelection(),computerPlay());
-}
-
-declare_winner(user_score, comp_score)
-
-//calculates the points to decide who won.
+//this function is declaring the winner 
 function declare_winner(myscore, compscore) {
     if (myscore > compscore) {
-        alert("player wins!")
+        alert("player wins!!!!!!!!!")
     }
     else if (myscore < compscore) {
-        alert("computer wins!")
+        alert("computer wins!!!!!!!!!")
     }
     else {1
-        alert("its a tie!")
+        alert("its a tie!!!!!!!!!")
     }
 }
+
+//this function calls declare_winner after ten games.
+function numOfGames() {
+    if ( games > 9) {
+        declare_winner(user_score, comp_score);
+    }
+}
+
+
+
+//when i did it in a retarded way
+    // rock.addEventListener('click', () => {
+    //     console.log('rock');
+    //     Game('rock',computerPlay());
+    //     console.log(user_score);
+    //     console.log(comp_score);
+    //     console.log(added_score)
+    //     numOfGames();
+    // })
+    // paper.addEventListener('click', () => {
+    //     console.log('paper');
+    //     Game('paper',computerPlay());
+    //     console.log(user_score);
+    //     console.log(comp_score);
+    //     console.log(added_score)
+    //     numOfGames();
+
+    // })
+    // scissors.addEventListener('click', () => {
+    //     console.log('scissors');
+    //     Game('scissors',computerPlay());
+    //     console.log(user_score);
+    //     console.log(comp_score);
+    //     console.log(added_score)
+    //     numOfGames();
+    // })
