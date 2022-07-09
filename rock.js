@@ -2,7 +2,7 @@
 let user_score = 0;
 let comp_score = 0;
 let added_score = 0;
-let games =0;
+let games = 0;
 
 //associate HTML buttons to JavaScript
 const rock = document.querySelector('#rock');
