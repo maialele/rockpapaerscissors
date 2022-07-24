@@ -1,0 +1,71 @@
+#container {
+    display: flex;
+    flex-direction: column;
+}
+
+#container div {
+}
+
+#buttonsContainer {
+    display: flex;
+}
+
+#choiceDiv {
+    display: flex;
+
+}
+
+#Header {
+    background-color: #fce5cd;
+    text-align: center;
+    padding: 80px;
+    font-size: 60px;
+    font-family: "Courier New";
+}
+
+button {
+    display: inline-block;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #5b5b5b;
+    text-align: center;
+    font-size: 28px;
+    padding: 30px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    position: relative;
+    left: 270px;
+    top: 110px;
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+button:hover.red {
+    background-color: #f4cccc;
+}
+
+button:hover.orange {
+    background-color: #fce5cd;
+}
+
+button:hover.yellow {
+    background-color: #fff2cc;
+}
+
