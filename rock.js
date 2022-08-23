@@ -1,14 +1,17 @@
 //associate HTML buttons to JavaScript constants 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
-const scissors = document.querySelector('#scissors');
-const container = document.querySelector('#container');
+const lobster = document.querySelector('#lobster');
+const container = document.querySelector('#choiceContainer');
+const pointsContainer = document.querySelector('#points');
+const winnerContainer = document.querySelector('#winner');
 const userDiv = document.createElement('div');
 const compDiv = document.createElement('div');
-const gaemsDiv = document.createElement('div');
+const gamesDiv = document.createElement('div');
 const userChoice = document.createElement('div');
 const compChoice = document.createElement('div');
 const winChoice = document.createElement('div');
+const winningPlayer = document.createElement('div');
 
 
 
@@ -22,18 +25,18 @@ let games = 0;
 //make it so that Buttons is called when the window opens
 window.onload = playerSelection
 
-//this function chooses between rock, paper or scissors and returns it. the computer choice.
+//this function chooses between rock, paper or lobster and returns it. the computer choice.
 function computerPlay() {
-    const options = ['rock', 'paper', 'scissors'];
+    const options = ['rock', 'paper', 'lobster'];
     let choice = options[Math.floor(options.length * Math.random())];
     console.log(choice);
     return choice;
 }
 
-//this function calls Game once the player chooses rock, paper or scissors. The player choice.
+//this function calls Game once the player chooses rock, paper or lobster. The player choice.
 function playerSelection() {
-    rps = ['rock','paper','scissors']
-    rpsVar = [rock,paper,scissors]
+    rps = ['rock','paper','lobster'];
+    rpsVar = [rock,paper,lobster];
     for ( let i = 0; i < rps.length; i++) {
         rpsVar[i].addEventListener('click', () => {
             console.log(rps[i]);
@@ -51,8 +54,8 @@ function Game(mychoice,compchoice) {
     let winning_choice = ''
     const pairs = {
         'paper': 'rock',
-        'rock': 'scissors',
-        'scissors': 'paper'
+        'rock': 'lobster',
+        'lobster': 'paper'
     }
     if (pairs[mychoice] == compchoice) {
         console.log(mychoice + " beats " + compchoice + ". player wins.")
@@ -80,88 +83,62 @@ function Game(mychoice,compchoice) {
 //this function is declaring the winner 
 function declare_winner(myscore, compscore) {
     if (myscore > compscore) {
-        alert("player wins!!!!!!!!!")
+        winningPlayer.textContent = "PLAYER WINS!";
+        winnerContainer.appendChild(winningPlayer);
     }
     else if (myscore < compscore) {
-        alert("computer wins!!!!!!!!!")
+        winningPlayer.textContent = "COMPUTER WINS!";
+        winnerContainer.appendChild(winningPlayer);
     }
-    else {1
-        alert("its a tie!!!!!!!!!")
+    else {
+        winningPlayer.textContent = "ITS A TIE!";
+        winnerContainer.appendChild(winningPlayer);
     }
 }
 
 // calculates the points to decide who won.
 function declareNreset() {
     console.log(games)
-    if (games > 9) {
+    if (games > 4) {
         declare_winner(user_score, comp_score);
         user_score = 0;
         comp_score = 0;
         added_score = 0;
         games = 0;
     }
+    else {
+        winningPlayer.textContent = "";
+    }
 }
 
 //display user score.
 function displayUserScore() {
     userDiv.textContent = "PLAYER SCORE: " + user_score;
-    userDiv.style.color = "red";
-    container.appendChild(userDiv);
+    pointsContainer.appendChild(userDiv);
 }
 
 //display computer score.
 function displayCompScore() {
     compDiv.textContent = "COMPUTER SCORE: " + comp_score;
-    compDiv.style.color = "blue";
-    container.appendChild(compDiv);
+    pointsContainer.appendChild(compDiv);
 }
 
 //display how many games played so far.
 function displayNumOfGames() {
-    gaemsDiv.textContent = "GAMES PLAYED: " + games;
-    gaemsDiv.style.color = "green";
-    container.appendChild(gaemsDiv);
+    gamesDiv.textContent = "GAMES PLAYED: " + games;
+    pointsContainer.appendChild(gamesDiv);
 }
 
 //display user choice.
 function displayUserChoice(mychoice) {
     userChoice.textContent = "USER CHOICE: " + mychoice;
-    userChoice.style.color = "red";
     container.appendChild(userChoice);
 }
 
 //display computer choice.
 function displayComputerChoice(compchoice) {
     compChoice.textContent = "COMPUTER CHOICE: " + compchoice;
-    compChoice.style.color = "blue";
     container.appendChild(compChoice);
 }
 
 
-
-//when i did it in a retarded way
-    // rock.addEventListener('click', () => {
-    //     console.log('rock');
-    //     Game('rock',computerPlay());
-    //     console.log(user_score);
-    //     console.log(comp_score);
-    //     console.log(added_score)
-    //     numOfGames();
-    // })
-    // paper.addEventListener('click', () => {
-    //     console.log('paper');
-    //     Game('paper',computerPlay());
-    //     console.log(user_score);
-    //     console.log(comp_score);
-    //     console.log(added_score)
-    //     numOfGames();
-
-    // })
-    // scissors.addEventListener('click', () => {
-    //     console.log('scissors');
-    //     Game('scissors',computerPlay());
-    //     console.log(user_score);
-    //     console.log(comp_score);
-    //     console.log(added_score)
-    //     numOfGames();
-    // })

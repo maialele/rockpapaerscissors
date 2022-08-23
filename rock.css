@@ -1,42 +1,92 @@
-#container {
+#orderContainer {
     display: flex;
     flex-direction: column;
 }
 
-#container div {
+#points {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 30px;
+}
+
+#points div {
+    margin: 40px;
+    
+}
+
+#choiceContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#choiceContainer div {
+    display: block;
+    margin: 10px;
+    border: 10px solid #efe8f2;
+    border-radius: 10px;
+    padding: 40px;
+    background-color:#efe8f2;
+    color: #ff5e64;
 }
 
 #buttonsContainer {
     display: flex;
+    justify-content: center;
+    padding: 100px;
 }
 
 #choiceDiv {
     display: flex;
-
 }
 
 #Header {
-    background-color: #fce5cd;
     text-align: center;
-    padding: 80px;
+    padding: 50px;
+    font-size: 100px;
+    font-weight: bold;    
+    background-color:#efe8f2;
+}
+
+#colored {
+    color: #e84757;
+}
+
+#winner {
+    font-weight: bold;
+    text-align: center;
     font-size: 60px;
-    font-family: "Courier New";
+    color: #38ccff;
+    padding: 100px;
+}
+
+#closing {
+    color: #efe8f2;
+    background-color: #ff5e64;
+    text-align: center;
+    font-size: 20px;
+    padding: 20px;
 }
 
 button {
     display: inline-block;
-    background-color: #eeeeee;
+    background-color: #f1e7f3;
     border-radius: 10px;
     border: 4px double #cccccc;
     color: #5b5b5b;
     text-align: center;
     font-size: 28px;
     padding: 30px;
+    margin: 10px;
     width: 200px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
-    position: relative;
     left: 270px;
     top: 110px;
 }
@@ -48,9 +98,8 @@ button span {
     transition: 0.5s;
 }
 
-button span:after {
+button span::after {
     content: '\00bb';
-    position: absolute;
     opacity: 0;
     top: 0;
     right: -20px;
@@ -58,14 +107,15 @@ button span:after {
 }
 
 button:hover.red {
-    background-color: #f4cccc;
+    background-color: #38ccff; 
 }
 
-button:hover.orange {
-    background-color: #fce5cd;
+a {
+	text-decoration: none;
+    color: #efe8f2;
 }
 
-button:hover.yellow {
-    background-color: #fff2cc;
+body {
+    font-family: 'Poppins';
+    margin: 0;
 }
-

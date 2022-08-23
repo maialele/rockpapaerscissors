@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="rock.css">
+        <link href="rock.css" rel="stylesheet" >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> 
     </head>
     <body>
-        <div id="Header">
-            Rock Paper Scissors
-        </div>
-        <div id="buttonsContainer">
-            <button id="rock" class="red">rock</button>
-            <button id="paper" class="orange">paper</button>
-            <button id="scissors" class="yellow">scissors</button>
-        </div>
-        <div id="container">
-        </div>
-        <div id="choiceDiv">
+        <div id="orderContainer">
+            <div id="Header">
+                Rock. Paper. <span id='colored'>Lobster!</span>
+            </div>
+            <div id="buttonsContainer">
+                <button id="rock" class="red">🪨</button>
+                <button id="paper" class="red">🧻</button>
+                <button id="lobster" class="red">🦞</button>
+            </div>
+            <div id="choiceContainer">
+            </div>
+            <div id="points">
+            </div>
+            <div id="winner">
+            </div>
+            <div id="closing">
+                made by <a href="https://github.com/maialele">maia</a>
+            </div>
         </div>
         <script src="rock.js"></script>
     </body>
