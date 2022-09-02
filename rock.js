@@ -131,13 +131,13 @@ function displayNumOfGames() {
 
 //display user choice.
 function displayUserChoice(mychoice) {
-    userChoice.textContent = "USER CHOICE: " + mychoice;
+    userChoice.textContent = "PLAYER: " + mychoice;
     container.appendChild(userChoice);
 }
 
 //display computer choice.
 function displayComputerChoice(compchoice) {
-    compChoice.textContent = "COMPUTER CHOICE: " + compchoice;
+    compChoice.textContent = "COMPUTER: " + compchoice;
     container.appendChild(compChoice);
 }
 
